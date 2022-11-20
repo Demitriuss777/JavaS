@@ -19,7 +19,7 @@ for ( let user of users) {
 <h1>${user.age}</h1>
 <p3>${ user.name} </p3> <h3>${user.status}</h3>
 
-</div></h1>`)
+</div>`)
 
 }*/
 
