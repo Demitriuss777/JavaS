@@ -39,9 +39,8 @@ console.log(sss);
 
 */
 
-/*
 let arr = [222, 'fdfd', 23, 44, 67];
-console.log(arr);
+/*console.log(arr);
 arr[arr.length]='hello'
 console.log(arr)
 console.log(arr[arr.length] = '3');
@@ -55,12 +54,12 @@ console.log(arr);
 console.log(arr.shift());
 console.log(arr);
 arr.unshift('dsd');
-console.log(arr);
+console.log(arr);*/
 let pp = arr.join(" , ");
 console.log(pp);
 let num = [1, 2, 3, 4, 5];
 let pr = arr.concat(num);
-console.log(pr);*/
+console.log(pr);
 let users = [
     {name: 'vasya', age: 31, status: false},
     {name: 'petya', age: 30, status: true},
