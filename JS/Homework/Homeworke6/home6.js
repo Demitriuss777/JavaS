@@ -146,8 +146,7 @@ console.log(fun)*/
 - всі буби// +
 - всі трефи від 9 та більше
 */
-/*
-let card = [
+/*let card = [
     {value: 'ace', cardsuit: 'heart', color: 'red'},
     {value: 'king', cardsuit: 'heart', color: 'red'},
     {value: 'queen', cardsuit: 'heart', color: 'red'},
@@ -187,7 +186,8 @@ let card = [
     {value: 'joker', color: 'red'},
     {value: 'joker', color: 'black'}
 
-];
+];*/
+/*
 let ace = card.filter((x) => {
     return x.value === 'ace' && x.cardsuit === 'clubs';
 });
@@ -207,31 +207,35 @@ console.log(diamond);
 */
 
 
-let suit = [
-    {cardsuit: 'spade', color: 'black'},
-    {cardsuit: 'clubs', color: 'black'},
-    {cardsuit: 'diamond', color: 'red'},
-    {cardsuit: 'heart', color: 'red'}
-];
+ let suit = [
+     {cardsuit: 'spade', color: 'black'},
+   {cardsuit: 'clubs', color: 'black'},
+  {cardsuit: 'diamond', color: 'red'},
+     {cardsuit: 'heart', color: 'red'}
+ ];
 
-let cardname = [6, 7, 8, 9, 10, 'ace', 'jack', 'queen', 'king'];
+ let cardname = [6, 7, 8, 9, 10, 'ace', 'jack', 'queen', 'king'];
 
-let card =[]
-for (const suits of suit) {
-    for (const name of cardname) {
-        let dtsk ={
-            cardsuit: suits.cardsuit,
-            value: name,
-            color:suits.color
+ let card =[]
+ for (const suits of suit) {
+     for (const name of cardname) {
+         let dtsk ={
+             cardsuit: suits.cardsuit,
+             value: name,
+             color:suits.color
 
-            }
-        card.push(dtsk);
+             }
+         card.push(dtsk);
 
 
-    }
-}
-console.log(card);
+     }
+ }
+ console.log(card);
+let sort9 = card.filter((x) => {
+    return x.cardsuit === 'clubs' && x.value >= '9';
 
+});
+console.log(sort9)
 
 /*Додатково по reduce
 Взяти описану колоду карт, та за допомоги редюсу попакувати всі карти по "мастях" в об'єкт
@@ -241,3 +245,25 @@ console.log(card);
     hearts:[],
     clubs:[]
 }*/
+let sort = card.reduce((acam, cardss) => {
+    if (cardss.cardsuit === 'spade') {
+        acam.spades.push(cardss)
+    }
+    else if (cardss.cardsuit === 'clubs') {
+        acam.clubses.push(cardss);
+    }
+    else if (cardss.cardsuit === 'heart') {
+        acam.hearts.push(cardss);
+    }
+    else if (cardss.cardsuit === 'diamond') {
+        acam.diamonds.push(cardss)
+    }
+
+
+    return acam;
+}, {
+    spades:[], clubses: [], hearts: [], diamonds:[]
+
+
+
+});console.log(sort)
