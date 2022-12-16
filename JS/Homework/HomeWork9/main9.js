@@ -135,7 +135,7 @@ let coursesArray = [
 //      блок розділити блоками, в яких будуть зберігатись значення окремих властивостей,
 //      для властивості modules зробити список з елементами
 //     Приклад структири знаходиться у файлі example.png
-console.log(coursesArray);
+/*console.log(coursesArray);
 for (const item of coursesArray) {
 let block = document.createElement('block')
     document.body.append(block)
@@ -167,4 +167,184 @@ let ul = document.createElement('ul')
     console.log(block);
 
 
-}
+}*/
+
+
+/*
+3 - створити блок,
+    - додати йому класи wrap, collapse, alpha, beta
+- додати стилі(довільні значення) : колір фону, колір тексту, розмір тексту
+- додати цей блок в body.
+- клонувати його повністю, та додати клон в body.*/
+
+/*
+let blocks = document.createElement("div")
+blocks.innerText = 'ddfdsfsdfdssf dfsfsdfd'
+blocks.classList.add('wrap')
+blocks.classList.add('collapse')
+blocks.classList.add('alpha');
+blocks.classList.add('beta');
+blocks.style.color = 'red';
+blocks.style.background = 'silver'
+blocks.style.fontSize = '90px'
+document.body.append(blocks)
+document.body.append(blocks.cloneNode(true));
+console.log(blocks);*/
+
+/*
+4     - Є масив:
+    ['Main','Products','About us','Contacts']
+Взяти файл template1.html та додати в нього скріпт котрий для кожного елементу масиву
+ створює li та додає його до блоку .menu
+Завдання робити через цикли.*/
+/*
+let array = ['Main', 'Products', 'About us', 'Contacts'];
+let htm = document.getElementsByClassName('menu');
+let menu = htm[0];
+for (const item of array) {
+    let li = document.createElement('li');
+    li.innerText=`${item}`
+    menu.append(li);
+    console.log(menu);
+
+}*/
+
+//5- Є масив
+
+/*let coursesAndDurationArray = [
+    {title: 'JavaScript Complex', monthDuration: 5},
+    {title: 'Java Complex', monthDuration: 6},
+    {title: 'Python Complex', monthDuration: 6},
+    {title: 'QA Complex', monthDuration: 4},
+    {title: 'FullStack', monthDuration: 7},
+    {title: 'Frontend', monthDuration: 4}
+];
+/!*
+Для кожного елементу масиву зробити блок в якому вивести інформацію про title
+ та monthDuration
+Завдання робити через цикли.
+*!/
+
+for (const item  of coursesAndDurationArray) {
+    let titles = document.createElement('div');
+    titles.innerText=`${item.title} -- ${item.monthDuration}`
+    document.body.append(title);
+
+}*/
+
+//6 - Є масив
+/*
+let coursesAndDurationArray = [
+    {title: 'JavaScript Complex', monthDuration: 5},
+    {title: 'Java Complex', monthDuration: 6},
+    {title: 'Python Complex', monthDuration: 6},
+    {title: 'QA Complex', monthDuration: 4},
+    {title: 'FullStack', monthDuration: 7},
+    {title: 'Frontend', monthDuration: 4}
+];
+
+
+/!*За допомоги скріпта для кожного елементу масиву зробити <div class='item'>
+,  в якому буде <h1 class='heading'>  з title  елементу,
+ та <p class='description'> з monthDuration елементу.
+    Завдання робити через цикли.*!/
+
+for (const item of coursesAndDurationArray) {
+    let div = document.createElement('div');
+    div.classList.add('item');
+    document.body.append(div);
+    let h1 = document.createElement('h1');
+    h1.classList.add('heqding');
+    h1.innerText = `${item.title}`;
+    let p = document.createElement('p');
+    p.classList.add('description');
+    p.innerText = `${item.monthDuration}`;
+    div.append(h1,p)
+}*/
+
+
+//  7
+/*-Створити довільний елемент з id = text.  Використовуючи JavaScript, зробіть так,
+    щоб при натисканні на кнопку зникав елемент з id="text".*/
+
+/*let div = document.createElement('div');
+div.innerText = 'hellloooov';
+div.getAttribute('id= text');
+let button = document.createElement('button');
+button.innerText = 'send';
+document.body.append(div, button);
+/!*button.onclick= function (){
+    div.style.display = 'none';*!/
+
+button.onclick= function (){
+    div.classList.toggle('');
+}*/
+
+/* 8
+    - створити інпут який приймає вік людини та кнопку яка підтверджує дію.
+    При натисканні на кнопку зчитати інформацію з інпуту та перевірити вік чи меньше він
+     ніж 18, та повідомити про це користувача*/
+
+/*let iputt  = document.createElement('input');
+let button = document.createElement('button')
+button.innerText = 'send';
+iputt.type = 'namber';
+
+document.body.append(iputt, button);
+button.onclick= function (e) {
+   /!* iputt.oninput *!/  // не розумію навіщо її робити, буз неї теж працює
+    if (iputt.value < 18) {
+        alert('so yong')
+    } else if (iputt.value >= 18){
+        alert('Welcome');
+    }
+
+}*/
+
+
+
+/*
+*** Створити 3 инпута та кнопку.//
+*  Один визначає кількість рядків,
+* другий - кількість ячеєк,
+* третій вмиіст ячеєк.
+    При натисканні кнопки, вся ця інформація зчитується і формується табличка,
+    * з відповідним вмістом.
+(Додатковачастина для завдання)*/
+let input1 = document.createElement('input');
+let input2 = document.createElement('input');
+let input3 = document.createElement('input');
+
+let button = document.createElement('button');
+button.innerText = 'send';
+document.body.append(input1, input3, input2, button);
+
+
+       button.onclick=()=>{  // сщздаєм зміниє з веліо
+     let tr = input1.value;
+     let tc = input2.value;
+     let tw = input3.value;
+
+
+     const generTable = (raws,colums,word) => {
+         let table = document.createElement('table');
+         table.style.border = `10px solid black`;
+         document.body.append(table);
+
+         for (let i = 0; i < raws; i++) {
+             let raw = document.createElement('tr');
+             table.append('raw');
+
+             for (let j = 0; j < colums; j++) {
+                 let colum = document.createElement('tc');
+                 colum.innerText = `${word}`;
+                 colum.style.border = `2px solid red`
+                 raw.append(`colum`);
+
+             }
+
+         }
+
+     }
+           generTable(tr, tc, tw);
+ }
