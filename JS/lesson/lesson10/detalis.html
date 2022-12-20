@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>detalis</title>
+</head>
+<body>
+
+<div> Detalis </div>
+
+<script>
+    let url = new URL(location.href);
+    console.log(url);
+    let id = url.searchParams.get("id");
+    console.log(id)
+    fetch('https://reqres.in/api/users/' + id)
+        .then(value => value.json())
+        .then(value => {
+            console.log(value)
+            let {data: userData} =value
+            div = document.createElement('div');
+            let h2 = document.createElement('h2');
+            h2.innerText = `${userData.first_name} ${userData.last_name} ${userData.email}`
+            let img = document.createElement('img');
+            img.src = userData.avatar
+            div.append(h2, img);
+            document.body.append(div)
+        } )
+
+
+</script>
+</body>
+</html>
