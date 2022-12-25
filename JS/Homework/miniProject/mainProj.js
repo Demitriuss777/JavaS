@@ -5,8 +5,12 @@
 3 Додати кожному блоку кнопку/посилання , при кліку на яку відбувається
 перехід  на сторінку user-details.html, котра має детальну інфорацію
  про об'єкт на який клікнули
+
+ Стилизація проєкта -
+index.html - всі блоки з user - по 2 в рядок. кнопки/аосилвння розташувати під інформацією про user.
 */
 const allcont = document.createElement('div')
+allcont.classList.add('con1')
 document.body.appendChild(allcont)
 
 fetch('https://jsonplaceholder.typicode.com/users')
@@ -15,11 +19,14 @@ fetch('https://jsonplaceholder.typicode.com/users')
             console.log(users)
             for (const item of users) {
                 const divuser = document.createElement('div');
+                divuser.classList.add('cont2');
                 allcont.appendChild(divuser);
                 const h = document.createElement('h2');
+                h.classList.add('cont3');
                 h.innerText=` ${item.id} - ${item.name} `
                 divuser.appendChild(h);
                 const Alink = document.createElement('a');
+                Alink.classList.add('contbtn4');
                 Alink.innerText='info'
                 h.appendChild(Alink)
                 Alink.href='user-details.html?id='+item.id
@@ -37,7 +44,8 @@ fetch('https://jsonplaceholder.typicode.com/users')
     )
 
 
-
+let cont2 = document.getElementsByClassName('cont2');
+let btnn = document.getElementsByClassName('contbtn4');
 
 
 

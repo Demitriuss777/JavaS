@@ -18,19 +18,20 @@ index.html - всі блоки з user - по 2 в рядок. кнопки/ао
     user-details.html - блок з інфою про user зверху сторінки. Кнопка нижчє, на 90% ширини сторінки, по центру.
     блоки з короткою іфною про post - в ряд по 5 .
     post-details.html - блок з інфою про пост зверху. Коментарі - по 4 в ряд.
-    Всі елементи котрі характеризують users, posts, comments візуалізувати, так, щоб було видно що це блоки (дати фон. марджини і тд)
+    Всі елементи котрі характеризують users, posts, comments візуалізувати, так, щоб було видно що це блоки
+    (дати фон. марджини і тд)
 */
 const url =new  URL(location.href)
-console
 /*console.log(url);*/
 const Id = url.searchParams.get('id')/*
-console.log(id)*/
+console.log(Id)*/
 fetch('https://jsonplaceholder.typicode.com/users/'+Id)
 .then(value => value.json())
 .then(info =>{
     console.log(info)
     for (const user in info) {
         const divUser = document.createElement('div')
+        divUser.classList.add('block')
         if (typeof info[user] !== 'object') {
             divUser.innerText = `${user} ${info[user]}`;
         } else {
@@ -66,6 +67,8 @@ fetch('https://jsonplaceholder.typicode.com/users/'+Id)
 
 const btn = document.createElement('button');
 btn.innerText='post of current user'
+btn.classList.add('ddd');
+
 document.body.appendChild(btn)
 
 
@@ -79,13 +82,15 @@ btn.onclick=function () {
             console.log(value)
             for (const post of value) {
                 const title = document.createElement('div')
+                title.classList.add('ppp')
                 const ult = document.createElement('ul')
                 const ilt = document.createElement('il')
                 ilt.innerText = post.title
                 ult.appendChild(ilt);
                 const a = document.createElement('a');
+                a.classList.add('aaa')
                 a.innerText='more details'
-                a.href='post-details.html'
+                a.href='post-details.html?id='+post.id
 
                 title.append(ult,a);
 
@@ -95,4 +100,15 @@ btn.onclick=function () {
 
 
         })
+    btn.disabled=true
 }
+
+
+document.getElementsByClassName('block'); // user-details.html - блок з інфою про user зверху сторінки.
+document.getElementsByClassName('ddd'); // Кнопка нижчє, на 90% ширини сторінки, по центру.
+document.getElementsByClassName('ppp');
+document.getElementsByClassName('aaa');
+/*
+
+ Кнопка нижчє, на 90% ширини сторінки, по центру.
+    блоки з короткою іфною про post - в ряд по 5 .*/
