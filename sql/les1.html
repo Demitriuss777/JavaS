@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+use demitriuss;
+create table newUsers
+(
+id int primary key auto_increment,
+name varchar(20) not null ,
+age int not null ,
+gender varchar(20) not null
+
+);
+insert into newUsers values (null, 'Den', 33, 'mail');
+select * from newUsers;
+select * from users;
+select * from users where name='kokos';
+select * from users where age=18 or age=4;
+select * from users where name='oleg' and gender='male';
+select  * from users where name like 'k%';
+select * from users where name like '%e%';
+select * from users where name like '_l%';
+select * from users where age  between 18 and 23;
+select * from users where age  not in (4,18,20);
+select * from users where length(name)<4;
+select min(age) from users;
+select avg(age) as avg from users;
+select sum(age) as semma from users;
+select * from cars;
+select count(*), model from cars group by model;
+select max(price), model from cars group by model;
+select max(price) as maxPrice, model from cars group by model order by maxPrice desc;
+select  count(*) as count, model from cars where year < 2005 group by model having count>40 ;
+
+
+</body>
+</html>
