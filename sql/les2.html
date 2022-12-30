@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+create table  cities
+(
+id int primary key auto_increment,
+city varchar(25) not null
+);
+create table citUsers(
+id int primary key auto_increment,
+name varchar(20) not null,
+citi_id int null,
+foreign key(citi_id)references cities(id)
+
+);
+insert into cities values (null,'Zapor');
+insert into citUsers values (null,'Inna',15, 2);
+update citUsers set citi_id= 1 where id=1;
+select * from citUsers right join cities c on c.id=citUsers.citi_id;
+select * from client
+join department d on d.idDepartment = client.Department_idDepartment
+join application a on client.idClient = a.Client_idClient
+
+</body>
+</html>
