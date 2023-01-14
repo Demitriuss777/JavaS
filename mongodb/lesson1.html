@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+db.users.find()
+db.users.insertOne({cars:'BMW' , model:'s3'})
+db.users.find({gender:'female', age:49})
+db.users.find({
+$or:[
+{rating:5},
+{rating:2},
+{age:12}
+]
+}
+
+)
+db.users.find({
+$and:[
+{rating:5},
+{age:25}
+]
+})
+db.users.find({age:{$in:[25,12,26]}})
+db.users.find({age:{$nin:[25,26,12]}})
+db.users.find({
+age:{
+$not:{
+$in:[25,12]
+}
+}
+});
+db.users.find({name:/^a/i});
+db.users.find({name:/a$/i});
+db.users.find({name:/^.{2}t/i});
+db.users.find({name:/^k.*a$/i});
+db.users.find({name:/.*v.*/i});
+db.users.find({name:/.*o.{2}$/i});
+db.users.find().sort({rating:1,age:-1})
+db.users.find().sort({rating:1,age:-1}).limit(2).skip(2);
+db.users.find({rating:{$gt:2}})
+db.users.find({rating:{$gte:2}})
+db.users.find({rating:{$lt:3}})
+db.users.find({rating:{$lte:2}})
+db.users.find({rating:{$ne:2}})
+
+db.users.updateOne(
+{_id:ObjectId("63b84582f94417078e0327e9")},
+{$set:{rating:10}}
+)
+db.users.find({_id:ObjectId("63b84582f94417078e0327e9")})
+db.users.find({rating:10})
+db.users.updateMany(
+{gender:"male"},
+{$set:{gender:"animal"}}
+
+
+)
+db.users.find({gender:'animal'})
+db.users.find({},{age:1,name:1,_id:0})
+db.users.find({'address.house':45})
+db.users.find({studying: "java"})
+db.users.find({parents:{$exists:1}})
+db.users.find({name:'Kira'})
+db.users.updateOne({_id:ObjectId('63b84582f94417078e0327e8')},
+{$push:{studying:'java, mongodb'}}
+)
+
+</body>
+</html>
